@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Utilities SPA - Complete Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card h2 i {
+            color: var(--accent);
+        }
+
+        .card h3 {
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .card h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        /* List Styles */
+        ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Code Styles */
+        code {
+            background: var(--light-gray);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+        }
+
+        /* Folder Structure Styles */
+        .folder-structure {
+            background: #f8fafc;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid var(--light-gray);
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+
+        .folder {
+            margin-left: 20px;
+            position: relative;
+            color: var(--primary-dark);
+        }
+
+        .folder::before {
+            content: "📁 ";
+        }
+
+        .file {
+            margin-left: 40px;
+            position: relative;
+        }
+
+        .file::before {
+            content: "📄 ";
+            color: var(--gray);
+        }
+
+        .file.jsx::before {
+            content: "⚛️ ";
+        }
+
+        .file.css::before {
+            content: "🎨 ";
+        }
+
+        /* Data Display Styles */
+        .data-display {
+            background: #f8fafc;
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary);
+            overflow-x: auto;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+                flex-direction: column;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>
+                <i class="fas fa-mosque"></i>
+                Islamic Utilities SPA - Complete Design
+                <i class="fas fa-star-and-crescent"></i>
+            </h1>
+            <p>React JS Student Task - Day 19</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Assignment Overview -->
+        <section class="card">
+            <h2><i class="fas fa-tasks"></i> Assignment Overview</h2>
+            <h3>📝 Assignment Title:</h3>
+            <p><strong>Islamic Utilities Multi-Page App using React Router</strong></p>
+            
+            <h3>🎯 Objective:</h3>
+            <p>Is task ka maqsad hai React Router DOM, Components, Props aur Map ki practice karna real-world Islamic examples ke zariye.</p>
+        </section>
+
+        <!-- Folder Structure -->
+        <section class="card">
+            <h2><i class="fas fa-folder-tree"></i> Project Folder Structure</h2>
+            
+            <div class="folder-structure">
+                <div class="folder">public/
+                    <div class="file">index.html</div>
+                    <div class="file">favicon.ico</div>
+                </div>
+                
+                <div class="folder">src/
+                    <div class="folder">components/
+                        <div class="file jsx">Navbar.jsx</div>
+                        <div class="file jsx">Tasbeeh.jsx</div>
+                        <div class="file jsx">ZakatCalculator.jsx</div>
+                        <div class="file jsx">QazaNamaz.jsx</div>
+                        <div class="file jsx">AsmaUlHusna.jsx</div>
+                        <div class="file jsx">About.jsx</div>
+                        <div class="file jsx">Quiz.jsx</div>
+                    </div>
+                    
+                    <div class="folder">data/
+                        <div class="file jsx">namesOfAllah.js</div>
+                        <div class="file jsx">quizQuestions.js</div>
+                    </div>
+                    
+                    <div class="folder">pages/
+                        <div class="file jsx">Home.jsx</div>
+                        <div class="file jsx">QazaPage.jsx</div>
+                        <div class="file jsx">ZakatPage.jsx</div>
+                        <div class="file jsx">TasbeehPage.jsx</div>
+                        <div class="file jsx">NamesPage.jsx</div>
+                        <div class="file jsx">AboutPage.jsx</div>
+                        <div class="file jsx">QuizPage.jsx</div>
+                    </div>
+                    
+                    <div class="folder">assets/
+                        <div class="folder">images/</div>
+                        <div class="folder">styles/
+                            <div class="file css">App.css</div>
+                            <div class="file css">components.css</div>
+                        </div>
+                    </div>
+                    
+                    <div class="file jsx">App.jsx</div>
+                    <div class="file">index.js</div>
+                </div>
+                
+                <div class="file">package.json</div>
+            </div>
+        </section>
+
+        <!-- Task Details -->
+        <section class="card">
+            <h2><i class="fas fa-clipboard-list"></i> Task Requirements</h2>
+            
+            <h3>📌 Task Description:</h3>
+            <p>Aap ne ek <strong>Single Page Islamic Utility App</strong> Banani hai React ke andar, jisme multiple Islamic tools/pages honge. Har page routing ke zariye navigate ho aur component structure follow kare.</p>
+            
+            <h3>🗂 Required Pages (Total 6 Pages):</h3>
+            
+            <h4>1. Qaza Namaz Tracker – <code>/qaza-namaz</code></h4>
+            <ul>
+                <li>User se poocha jaye: "Aap ne Qaza count kis saal se start karna hai?"</li>
+                <li>Start Year input (eg, 2015), End Year default: current year</li>
+                <li>Har din 6 namazon ka count (Fajr, Zuhr, Asr, Maghrib, Isha,Witr)</li>
+                <li>React se total missed namazon ka auto-count dikhao (years × 365 × 6)</li>
+                <li>Simple display or table ho with total calculation</li>
+            </ul>
+            
+            <h4>2. Zakat Calculator – <code>/zakat</code></h4>
+            <ul>
+                <li>User se input lo: gold, cash, silver (number fields)</li>
+                <li>Basic calculator banayein – amount show karo (formula optional)</li>
+            </ul>
+            
+            <h4>3. Tasbeeh Counter – <code>/tasbeeh</code></h4>
+            <ul>
+                <li>Digital counter with 2 buttons: Increment, Reset</li>
+                <li>State use karke counting update ho</li>
+            </ul>
+            
+            <h4>4. Asma Ul Husna – <code>/names-of-allah</code></h4>
+            <ul>
+                <li>99 Names show ho grid ya card view mein</li>
+                <li>Data array se ho + <code>map()</code> ka use ho</li>
+                <li>Every name component ko props se mile</li>
+            </ul>
+            
+            <h4>5. About Me Page – <code>/about</code></h4>
+            <ul>
+                <li>Teen sections: Introduction (<code>Intro.jsx</code>), Skills (<code>Skills.jsx</code>), Resume (<code>Resume.jsx</code>)</li>
+                <li>Har section props use kare</li>
+            </ul>
+            
+            <h4>6. Islamic Quiz – <code>/quiz</code></h4>
+            <ul>
+                <li>Islamic MCQs ka chhota quiz app banayein</li>
+                <li>React state aur props ka use ho</li>
+                <li>Har sawal ek component ho aur option choose karne ke baad correct/incorrect batayein</li>
+            </ul>
+        </section>
+
+        <!-- Dummy Data Examples -->
+        <section class="card">
+            <h2><i class="fas fa-database"></i> Dummy Data Examples</h2>
+            
+            <h3>Asma Ul Husna Data (<code>namesOfAllah.js</code>)</h3>
+            <div class="data-display">
+                <pre><code>const namesOfAllah = [
+  { id: 1, name: "الرَّحْمَنُ", meaning: "The Beneficent" },
+  { id: 2, name: "الرَّحِيمُ", meaning: "The Merciful" },
+  { id: 3, name: "الْمَلِكُ", meaning: "The King" },
+  { id: 4, name: "الْقُدُّوسُ", meaning: "The Holy" },
+  { id: 5, name: "السَّلاَمُ", meaning: "The Source of Peace" },
+  // ... more names up to 99
+];</code></pre>
+            </div>
+            
+            <h3>Quiz Questions Data (<code>quizQuestions.js</code>)</h3>
+            <div class="data-display">
+                <pre><code>const quizQuestions = [
+  {
+    id: 1,
+    question: "How many pillars of Islam are there?",
+    options: ["4", "5", "6", "7"],
+    answer: "5"
+  },
+  {
+    id: 2,
+    question: "Which Surah is called the 'Heart of the Quran'?",
+    options: ["Al-Fatiha", "Al-Baqarah", "Yaseen", "Al-Ikhlas"],
+    answer: "Yaseen"
+  },
+  // ... more questions
+];</code></pre>
+            </div>
+        </section>
+
+        <!-- Technical Guidelines -->
+        <section class="card">
+            <h2><i class="fas fa-code"></i> Technical Guidelines</h2>
+            <ul>
+                <li>Project Name: <code>islamic-utilities-spa</code></li>
+                <li>Use <code>npx create-react-app</code> ya <code>vite</code></li>
+                <li>Install routing: <code>npm i react-router-dom</code></li>
+                <li>Routing: setup <code>App.jsx</code> mein ho</li>
+                <li>Navigation ke liye <code>&lt;Link&gt;</code> use karein</li>
+                <li>Props aur <code>map()</code> kam az kam 3 pages mein use ho</li>
+                <li>Readable layout ke liye basic CSS zaroori hai</li>
+            </ul>
+            
+            <h3>Sample App.jsx Routing Setup</h3>
+            <div class="data-display">
+                <pre><code>import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import QazaPage from './pages/QazaPage';
+import ZakatPage from './pages/ZakatPage';
+// ... other imports
+
+function App() {
+  return (
+    &lt;Router&gt;
+      &lt;Navbar /&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/qaza-namaz" element={&lt;QazaPage /&gt;} /&gt;
+        &lt;Route path="/zakat" element={&lt;ZakatPage /&gt;} /&gt;
+        &lt;!-- other routes --&gt;
+      &lt;/Routes&gt;
+    &lt;/Router&gt;
+  );
+}
+
+export default App;</code></pre>
+            </div>
+        </section>
+
+        <!-- Learning Outcomes -->
+        <section class="card">
+            <h2><i class="fas fa-graduation-cap"></i> Learning Outcomes</h2>
+            <ul>
+                <li>React Routing aur navigation samajhna</li>
+                <li>Component architecture follow karna</li>
+                <li>Dynamic content generate karna via <code>map()</code></li>
+                <li>Props aur state ka proper use</li>
+                <li>Real-life Islamic tools React se banana seekhna</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
